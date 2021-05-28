@@ -5,5 +5,30 @@
 </ion-header>
 
 <ion-content>
+  <ion-fab vertical="center" horizontal="center" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add" (click)="selectImage()"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
+  <!-- <img src="{{base64Image}}" alt=""> -->
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="selectImage()">
+          Choose image
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div>
+          <img [src]="propicurl"/>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

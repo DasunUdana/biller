@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { Storage } from '@ionic/storage'
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,15 @@ import { ToastController } from '@ionic/angular';
 
 export class AppServiceService {
   toastDuration: 4000;
-  constructor(public toastController: ToastController) { }
+  appStorage: any;
+
+  constructor(public toastController: ToastController, private storage: Storage) { 
+    this.initStorage();
+  }
+
+  async initStorage() {
+    this.appStorage = await this.storage.create();
+  }
 
   async showErrorMsg (msg) {
     const toast = await this.toastController.create({
